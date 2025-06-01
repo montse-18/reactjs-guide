@@ -40,7 +40,7 @@
 
 ---
 
-## 🇬🇧 English Version
+## [🇬🇧 English Version](./english/Table%20of%20Contents%20-%20React%20JS%20Tutorial%20for%20Beginners.markdown)
 
 ### ✨ About This Handbook
 
