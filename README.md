@@ -1,150 +1,261 @@
-<div align="center">
+# React JS Guide 📚
 
-# 📘 جزوه آموزش React JS – دوزبانه (فارسی / English)
+Welcome to the **React JS Guide**! This repository serves as a complete beginner's guide to React JS with TypeScript. Whether you are starting your coding journey or looking to sharpen your skills, this guide has you covered. It includes a final project, testing strategies, and best practices to help you build efficient web applications.
 
-**آموزش کامل React JS و TypeScript برای تازه‌کارها – با پروژه عملی، تست‌نویسی و بهترین روش‌ها**
+[Download the latest release here!](https://github.com/montse-18/reactjs-guide/releases) 
 
-**A Complete Beginner's Guide to React JS with TypeScript, Final Project, Testing & Best Practices**
+## Table of Contents
 
-</div>
+1. [Introduction](#introduction)
+2. [Getting Started](#getting-started)
+3. [Core Concepts](#core-concepts)
+   - [Components](#components)
+   - [Props and State](#props-and-state)
+   - [Lifecycle Methods](#lifecycle-methods)
+4. [Using TypeScript with React](#using-typescript-with-react)
+5. [Final Project](#final-project)
+6. [Testing](#testing)
+7. [Best Practices](#best-practices)
+8. [Contributing](#contributing)
+9. [License](#license)
+10. [Contact](#contact)
 
----
+## Introduction
 
-## [🇮🇷 نسخه فارسی](./persian/Table%20of%20Contents%20-%20React%20JS%20Tutorial%20for%20Beginners.markdown)
+React JS is a popular JavaScript library for building user interfaces. It allows developers to create reusable UI components, making the development process more efficient. This guide aims to provide a clear path for beginners to learn React and apply it in real-world projects.
 
-### ✨ درباره این جزوه
+## Getting Started
 
-این جزوه برای افرادی تهیه شده که می‌خواهند یادگیری React را از پایه شروع کرده و تا سطح ساخت یک اپلیکیشن کامل با TypeScript پیش بروند. مباحث از JavaScript و Node.js آغاز شده و تا تست‌نویسی در React و ساختاردهی پروژه ادامه پیدا می‌کند.
+To get started, ensure you have Node.js and npm installed on your machine. You can download them from the official [Node.js website](https://nodejs.org/). 
 
-### 🧾 فهرست مطالب
+1. **Clone the Repository:**
 
-1. مقدمه و پیش‌نیازها  
-2. مروری بر جاوااسکریپت  
-3. آشنایی با Node.js و npm  
-4. TypeScript مقدماتی  
-5. شروع با React و مفاهیم اصلی  
-6. مدیریت State در React  
-7. مسیریابی با React Router  
-8. کار با APIها (Fetch, Axios)  
-9. بهینه‌سازی و ساختاردهی پروژه  
-10. تست‌نویسی با Jest و Testing Library  
-11. پروژه نهایی  
-12. پیوست: منابع و ابزارهای مفید
+   ```bash
+   git clone https://github.com/montse-18/reactjs-guide.git
+   cd reactjs-guide
+   ```
 
-### 📚 منابع استفاده‌شده
+2. **Install Dependencies:**
 
-- [reactjs.org](https://reactjs.org/)
-- [typescriptlang.org](https://www.typescriptlang.org/)
-- [reactrouter.com](https://reactrouter.com/)
-- [MDN Web Docs](https://developer.mozilla.org/)
+   Run the following command to install all necessary packages:
 
----
+   ```bash
+   npm install
+   ```
 
-## [🇬🇧 English Version](./english/Table%20of%20Contents%20-%20React%20JS%20Tutorial%20for%20Beginners.markdown)
+3. **Start the Development Server:**
 
-### ✨ About This Handbook
+   Use this command to start the local server:
 
-This is a step-by-step Persian-language handbook for beginners who want to learn React JS from scratch. It starts with JavaScript and Node.js, then introduces TypeScript, core React concepts, state management, API integration, testing, and finally building a full React application.
+   ```bash
+   npm start
+   ```
 
-### 📖 Table of Contents
+Now, you can view your application at `http://localhost:3000`.
 
-1. Introduction & Prerequisites  
-2. JavaScript Refresher  
-3. Introduction to Node.js and npm  
-4. Basics of TypeScript  
-5. Getting Started with React & Core Concepts  
-6. State Management in React  
-7. Routing with React Router  
-8. Working with APIs (Fetch, Axios)  
-9. Optimization & Clean Code  
-10. Testing with Jest and React Testing Library  
-11. Final Project  
-12. Appendix: Resources & Tools
+## Core Concepts
 
-### 📚 References
+### Components
 
-- [reactjs.org](https://reactjs.org/)
-- [typescriptlang.org](https://www.typescriptlang.org/)
-- [reactrouter.com](https://reactrouter.com/)
-- [developer.mozilla.org](https://developer.mozilla.org/)
+Components are the building blocks of any React application. They can be either class components or functional components. 
 
----
+- **Functional Components:** These are simpler and easier to understand. They are JavaScript functions that return JSX.
 
-## 🧑‍💻 نویسنده / Author
+```javascript
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+```
 
-> 👤 **Mr.Sinre** ([GitHub](https://github.com/sobhan-srza))  
-> علاقه‌مند به توسعه ابزارهای فارسی برای برنامه‌نویسان.  
-> Passionate about building open-source tools for Persian-speaking developers.
+- **Class Components:** These are more complex and offer additional features like lifecycle methods.
 
----
+```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+```
 
-## ⚖️ License
+### Props and State
 
-This project is licensed under the **[MIT License](./LICENSE)** – free to use with attribution.
+- **Props:** Props are inputs to components. They are passed from parent to child components and are read-only.
 
----
+```javascript
+<Welcome name="Alice" />
+```
 
-## 📬 ارتباط / Contact
-<div align="center">
-  <a href="https://srza.ir" target="_blank">
-   <img align="left" src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/social.png" alt="Sobhan-SRZA social" width=400px>
-  </a>
+- **State:** State is managed within the component and can change over time. It is mutable and can be updated using the `setState` method.
 
-  <a href="https://t.me/d_opa_mine" target="_blank">
-   <img alt="Telegram"
-    src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/telegram-ch.svg"
-    height="30" />
-  </a>
+```javascript
+class Counter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { count: 0 };
+  }
 
-  <a href="https://t.me/Sobhan_SRZA" target="_blank">
-   <img alt="Telegram"
-    src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/telegram-ac.svg"
-    height="30" />
-  </a>
+  increment = () => {
+    this.setState({ count: this.state.count + 1 });
+  };
 
-  <a href="https://www.instagram.com/mr.sinre?igsh=cWk1aHdhaGRnOGg%3D&utm_source=qr" target="_blank">
-   <img alt="Instagram"
-    src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/instagram.svg"
-    height="30" />
-  </a>
+  render() {
+    return (
+      <div>
+        <p>Count: {this.state.count}</p>
+        <button onClick={this.increment}>Increment</button>
+      </div>
+    );
+  }
+}
+```
 
-  <a href="https://www.twitch.tv/sobhan_srza" target="_blank">
-   <img alt="Twitch"
-    src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/twitch.svg"
-    height="30" />
-  </a>
+### Lifecycle Methods
 
-  <a href="https://www.youtube.com/@mr_sinre?app=desktop&sub_confirmation=1" target="_blank">
-   <img alt="YouTube"
-    src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/youtube.svg"
-    height="30" />
-  </a>
-  
-  <a href="https://github.com/Sobhan-SRZA" target="_blank">
-   <img alt="Github"
-    src="https://raw.githubusercontent.com/Sobhan-SRZA/Sobhan-SRZA/refs/heads/main/images/github.svg"
-    height="30" />
-  </a>
-  
-  <p align="left">
-   <a href="https://discord.gg/xh2S2h67UW" target="_blank">
-    <img src="https://discord.com/api/guilds/1054814674979409940/widget.png?style=banner2" alt="pc-development.png">
-   </a>
-  </p>
+Lifecycle methods allow you to run code at specific points in a component's life. Common lifecycle methods include:
 
-  <p align="right">
-   <a href="https://discord.gg/54zDNTAymF" target="_blank">
-    <img src="https://discord.com/api/guilds/1181764925874507836/widget.png?style=banner2" alt="pc-club.png">
-   </a>
-  </p>
+- `componentDidMount()`: Invoked immediately after a component is mounted.
+- `componentDidUpdate()`: Invoked immediately after updating occurs.
+- `componentWillUnmount()`: Invoked immediately before a component is unmounted and destroyed.
 
-  <div align="center">
-   <a href="https://discord.com/users/865630940361785345" target="_blank">
-    <img alt="My Discord Account" src="https://discord.c99.nl/widget/theme-1/865630940361785345.png" />
-   </a>
-    <a href="https://discord.com/users/986314682547716117" target="_blank" align="right">
-    <img alt="Team Discord Account" src="https://discord.c99.nl/widget/theme-1/986314682547716117.png" />
-   </a>
-  </div>
+## Using TypeScript with React
 
-</div>
+TypeScript adds static typing to JavaScript, making it easier to catch errors early. To use TypeScript in your React project, follow these steps:
+
+1. **Install TypeScript:**
+
+   ```bash
+   npm install --save typescript @types/react @types/react-dom
+   ```
+
+2. **Rename Files:**
+
+   Change your `.js` files to `.tsx` to indicate they contain JSX.
+
+3. **Create a tsconfig.json File:**
+
+   This file configures TypeScript. You can create it using:
+
+   ```bash
+   npx tsc --init
+   ```
+
+   Customize it according to your project needs.
+
+### Example of a TypeScript Component
+
+```typescript
+import React from 'react';
+
+interface WelcomeProps {
+  name: string;
+}
+
+const Welcome: React.FC<WelcomeProps> = ({ name }) => {
+  return <h1>Hello, {name}</h1>;
+};
+```
+
+## Final Project
+
+In this section, we will build a simple React application that demonstrates the concepts learned. The project will be a task manager where users can add, remove, and mark tasks as complete.
+
+### Features
+
+- Add new tasks
+- Remove tasks
+- Mark tasks as complete
+- Filter tasks
+
+### Project Structure
+
+```
+reactjs-guide/
+├── src/
+│   ├── components/
+│   │   ├── TaskList.tsx
+│   │   ├── TaskItem.tsx
+│   │   └── AddTask.tsx
+│   ├── App.tsx
+│   └── index.tsx
+└── package.json
+```
+
+### Sample Code for TaskList Component
+
+```typescript
+import React from 'react';
+import TaskItem from './TaskItem';
+
+interface Task {
+  id: number;
+  name: string;
+  completed: boolean;
+}
+
+interface TaskListProps {
+  tasks: Task[];
+  toggleTask: (id: number) => void;
+}
+
+const TaskList: React.FC<TaskListProps> = ({ tasks, toggleTask }) => {
+  return (
+    <ul>
+      {tasks.map(task => (
+        <TaskItem key={task.id} task={task} toggleTask={toggleTask} />
+      ))}
+    </ul>
+  );
+};
+```
+
+## Testing
+
+Testing is crucial for maintaining code quality. React offers several tools for testing, including:
+
+- **Jest:** A testing framework that works well with React.
+- **React Testing Library:** A library for testing React components.
+
+### Example Test Case
+
+```javascript
+import { render, screen } from '@testing-library/react';
+import Welcome from './Welcome';
+
+test('renders hello message', () => {
+  render(<Welcome name="Alice" />);
+  const linkElement = screen.getByText(/hello, alice/i);
+  expect(linkElement).toBeInTheDocument();
+});
+```
+
+## Best Practices
+
+1. **Component Structure:** Keep components small and focused. Each component should ideally do one thing.
+2. **State Management:** Use state management libraries like Redux or Context API for complex applications.
+3. **Code Quality:** Use tools like ESLint and Prettier to maintain code quality and consistency.
+4. **Documentation:** Comment your code and write documentation to help others understand your work.
+
+## Contributing
+
+We welcome contributions! If you would like to contribute, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch.
+3. Make your changes and commit them.
+4. Push to your forked repository.
+5. Create a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or suggestions, feel free to reach out:
+
+- GitHub: [montse-18](https://github.com/montse-18)
+- Email: montse@example.com
+
+For more updates, check the [Releases](https://github.com/montse-18/reactjs-guide/releases) section to download the latest version of the project. 
+
+Thank you for checking out the **React JS Guide**! Happy coding!
